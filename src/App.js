@@ -1,5 +1,7 @@
 import React from "react";
-import HomePage from "./pages/homepage/homepage.component";
+import HomePage from "./pages/homepage";
+import ShopPage from "./pages/shop"
+
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
@@ -8,18 +10,9 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/hats" component={HatsPage} />
+        <Route path="/shop" component={ShopPage} />
       </Switch>
     </div>
   );
 }
-
-function HatsPage() {
-  return (
-    <div>
-      <h1>Hats page</h1>
-    </div>
-  );
-}
-
 export default App;
