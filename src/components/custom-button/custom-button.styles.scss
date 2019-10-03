@@ -24,6 +24,7 @@
   &.google-sign-in {
     background-color: #4285f4;
     color: white;
+    transition: all .2s ease-in-out;
 
     &:hover {
       background-color: #357ae8;
