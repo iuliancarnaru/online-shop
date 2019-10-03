@@ -9,6 +9,8 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import "./App.css";
 
+// TODO: Add redux to the app
+
 class App extends Component {
   constructor() {
     super();
