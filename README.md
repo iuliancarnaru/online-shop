@@ -86,3 +86,32 @@ docker run -v /opt/datadir:/var/lib/mysql mysql
 ```docker
 docker inspect (name)
 ```
+
+## docker logs
+
+```docker
+docker logs (name)
+```
+
+## docker ENV variables (-e: environment variable) / inspect in -> config: env: "APP_COLOR=blue"
+
+```docker
+docker run -e APP_COLOR=blue webapp
+docker inspect webapp
+docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db mysql
+```
+
+## DOCKERFILE (layered architecture), find details by running docker history (name)
+
+```docker
+FROM Ubuntu                                               --> base OS
+RUN apt-get update                                        --> install all dependencies
+RUN apt-get install python
+
+RUN pip install flask
+RUN pip install flask-mysql
+
+COPY . /opt/source-code                                   --> copy source code
+
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run    --> specify entry point
+```
