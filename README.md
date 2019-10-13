@@ -115,3 +115,14 @@ COPY . /opt/source-code                                   --> copy source code
 
 ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run    --> specify entry point
 ```
+
+```docker
+docker build Dockerfile -t webapp .
+
+```
+
+## Find an operating system used by an image
+
+```docker
+docker run python:3.6 cat /etc/*release*
+```
