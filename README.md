@@ -126,3 +126,28 @@ docker build Dockerfile -t webapp .
 ```docker
 docker run python:3.6 cat /etc/*release*
 ```
+
+## Docker networks
+
+```docker
+bridge (default): docker run Ubuntu
+none: docker run Ubuntu --network=none
+host: docker run Ubuntu --network=host
+```
+
+## Docker user defined networks: docker inspect (name) -> networks: bridge: IPAddress
+
+```docker
+docker network create \
+  --driver bridge \
+  --subnet 182.18.0.0/16
+  custom isolated-network
+
+docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network
+docker run --network=wp-mysql-network -e DB_Host=mysql-db -e DB_Password=db_pass123 -p 38080:8080 --name webapp --link mysql-db:mysql-db -d kodekloud/simple-webapp-mysql
+```
+
+```docker
+docker network ls
+docker network inspect bridge
+```
